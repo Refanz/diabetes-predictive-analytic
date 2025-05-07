@@ -14,8 +14,9 @@ menyerap dan mengatur glukosa menjadi energi.
 Terdapat beberapa faktor yang dapat meingkatkan risiko terkena diabetes yaitu terdapat keluarga dengan riwayat diabetes,
 terkena penyakit autoimun, gaya hidup yang buruk, dan konsumsi makanan sembarangan. Terdapat faktor lain yaitu jenis
 kelamin. Menurut Rosita et al. (2022) menunjukkan bahwa jenis kelamin perempuan memiliki risiko 2,15 kali lebih besar
-untuk terkena diabetes melitus tipe 2 dibandingkan dengan laki-laki.<sup>1</sup> Kemudian, berdasarkan riset kesehatan dasar
-RISKESDAS 2018 penderita diabetes melitius pada perempuan (1,8%) lebih tinggi daripada laki-laki (1,2%) di Indonesia.
+untuk terkena diabetes melitus tipe 2 dibandingkan dengan laki-laki. Kemudian, berdasarkan riset kesehatan
+dasar
+RISKESDAS (2018) penderita diabetes melitius pada perempuan (1,8%) lebih tinggi daripada laki-laki (1,2%) di Indonesia.
 
 Risiko terkena diabetes pada perempuan lebih tinggi daripada laki-laki. Oleh karena itu, proyek ini fokus pada
 pengembangan
@@ -25,7 +26,7 @@ adalah jumlah
 kehamilan, glukosa, tekanan darah, ketebalan kulit, jumlah insulin, BMI, fungsi silsilah diabetes, dan umur. Dari proyek
 ini diharapkan agar model dapat membantu perempuan untuk mengetahui kondisinya sedini mungkin.
 
-**Daftar Pustaka**
+**Daftar Referensi**
 
 1. Rosita, R., Kusumaningtiar, D. A., Irfandi, A., & Ayu, I. M. (2022). Hubungan antara jenis kelamin, umur, dan
    aktivitas
@@ -38,52 +39,52 @@ ini diharapkan agar model dapat membantu perempuan untuk mengetahui kondisinya s
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
 Bagian laporan ini mencakup:
 
 ### Problem Statements
 
 Menjelaskan pernyataan masalah latar belakang:
 
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+- Bagaimana membangun model machine learning mampu memprediksi apakah seorang wanita berisiko diabetes atau
+  tidak?
+- Bagaimana cara untuk mengatasi ketidakseimbangan kelas pada dataset untuk meningkatkan kinerja model?
 
 ### Goals
 
 Menjelaskan tujuan dari pernyataan masalah:
 
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+- Membuat model machine learning yang dapat memprediksi risiko diabetes pada wanita berdasarkan kondisi-kondisi tubuh
+  yang ada
+- Menggunakan teknik oversampling (SMOTE) untuk menangani kelas mintoritas (non-diabetes)
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang
-diinginkan.
+### Solution statements
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan
-  sebagai berikut:
-
-  ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi
-      yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+- Membangun model dengan menggunakan tiga algoritma berbeda
+- Melakukan hyperparameter tuning untuk meningkatkan kinerja dari ketiga model
 
 ## Data Understanding
 
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau
-tautan untuk mengunduh dataset.
-Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Data yang digunakan pada proyek prediksi analitik ini adalah Diabetes dataset yang diunduh
+dari [Kaggle](https://www.kaggle.com/datasets/mathchi/diabetes-data-set). Dataset ini memiliki 768 data
+dengan jumlah pembagian kelas sebanyak 500 adalah wanita non-diabetes dan 268 wanita mengidap diabetes. Dataset ini
+memiliki ketidakseimbangan dalam jumlah kelas. Oleh karena itu, perlu dilakukan oversampling untuk mengatasi masalah
+tersebut.
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
+Dataset ini mencatat berbagai variabel fisiologis yang digunakan untuk menilai risiko diabetes, antara lain jumlah
+kehamilan, kadar glukosa darah, tekanan darah, ketebalan kulit, kadar insulin, indeks massa tubuh (BMI), fungsi silsilah
+diabetes, dan usia.
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
+### Variabel-variabel pada Diabetes Kaggle dataset adalah sebagai berikut:
 
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+- Pregnancies: merupakan jumlah kehamilan
+- Glucose: merupakan kadar gula dalam darah setelah 2 jam melakukan Tes Toleransi Glukosa Oral (TTGO)
+- BloodPressure: merupakan tekanan darah diastolic (mm Hg)
+- SkinThickness: merupakan ketebalan lipatan kulit trisep (mm)
+- Insulin: merupakan kadar insulin 2 jam setelah Tes Toleransi Glukosa (mm U/ml)
+- BMI: merupakan indeks masa tubuh (berat dalam kg/(tinggi dalam m)^2)
+- DiabetesPedigreeFunction: merupakan fungsi yang menghasilkan nilai pengaruh riwayat penyakit diabetes pada seseorang
+- Age: merupakan umur (tahun)
+- Outcome: merupakan kelas 0 (non-diabetes) atau 1 (diabetes)
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 
