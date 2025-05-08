@@ -39,19 +39,13 @@ ini diharapkan agar model dapat membantu perempuan untuk mengetahui kondisinya s
 
 ## Business Understanding
 
-Bagian laporan ini mencakup:
-
 ### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
 
 - Bagaimana membangun model machine learning mampu memprediksi apakah seorang wanita berisiko diabetes atau
   tidak?
 - Bagaimana cara untuk mengatasi ketidakseimbangan kelas pada dataset untuk meningkatkan kinerja model?
 
 ### Goals
-
-Menjelaskan tujuan dari pernyataan masalah:
 
 - Membuat model machine learning yang dapat memprediksi risiko diabetes pada wanita berdasarkan kondisi-kondisi tubuh
   yang ada
@@ -89,14 +83,16 @@ diabetes, dan usia.
 ### Data Visualization and EDA
 
 **Melihat informasi dataset**
-<br> Berikut ini adalah informasi singkat mengenai dataset diabetes.
-![Dataset Informartion](/assets/dataset-info.png)
+
+Berikut ini adalah informasi singkat mengenai dataset diabetes.
+<img alt="Dataset Informartion" src="/assets/dataset-info.png" width="100%"/>
 Terlihat pada gambar di atas terdapat 768 data dan 9 kolom/fitur pada dataset. Tidak ditemukan adanya missing value pada
 masing-masing fitur. Untuk kolom Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, Age, dan Outcome memiliki
 tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki tipa data float64.
 
 **Melihat deskripsi statistik dataset**
-<br> Berikut ini adalah deskripsi statistik dari dataset.
+
+Berikut ini adalah deskripsi statistik dari dataset.
 
 |       | Pregnancies | Glucose    | BloodPresure | SkinThickness | Insulin    | BMI        | DiabetesPedigreeFunction | Age        | Outcome    |
 |-------|-------------|------------|--------------|---------------|------------|------------|--------------------------|------------|------------|
@@ -109,10 +105,27 @@ tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki
 | 75%   | 6.000000    | 140.250000 | 80.000000    | 32.000000     | 127.250000 | 36.600000  | 0.626250                 | 41.000000  | 1.000000   |
 | max   | 17.000000   | 199.000000 | 122.000000   | 99.000000     | 846.000000 | 67.100000  | 2.420000                 | 81.000000  | 1.000000   |
 
-Dari tabel di atas terlihat jumlah, rata-rata, standard deviasi, nilai minimum dan maksimum, dan kuartil untuk
+Dari tabel di atas terlihat jumlah, rata-rata, standard deviasi, nilai minimum dan maksimum, dan kuartil 1 - 3 untuk
 masing-masing fitur numerik. Pada tabel terlihat untuk kolom Glucose, BloodPresure, SkinThickness, Insulin, dan BMI
-untuk nilai minimal adalah 0. Hal ini sangat tidak mungkin karena nilai tersebut untuk setiap orang pasti memilikinya. Oleh
+untuk nilai minimal adalah 0. Hal ini sangat tidak mungkin karena nilai tersebut untuk setiap orang pasti memilikinya.
+Oleh
 karena itu, permasalahan missing value ini perlu ditangani.
+
+**Menangani Missing Value**
+
+Dari hasil fungsi describe() untuk kolom Glucose, BloodPresure, SkinThickness, Insulin, dan BMI nilai minimumnya
+adalah 0. Kondisi tersebut tidak mungkin dan dapat dianggap sebagai missing value. Berikut ini adalah potongan kode yang
+digunakan untuk menghitung jumlah data yang bernilai 0.
+
+```python
+miss_val_count = (diabetes_df[col] == 0).sum()
+```
+
+Gambar di bawah ini adalah jumlah data yang terdapat 0 pada masing-masing kolom.
+
+<img alt="Missing Value Count" src="/assets/missing-value-count.png" width=100%/>
+Pada kolom Glocose terdapat 5 data yang terdapat nilai 0, BloodPressure ada 35 data, SkinThickness ada 227 data, Insulin
+ada 374 data, dan kolom BMi ada 11 data.
 
 ## Data Preparation
 
