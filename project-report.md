@@ -125,7 +125,23 @@ Gambar di bawah ini adalah jumlah data yang terdapat 0 pada masing-masing kolom.
 
 <img alt="Missing Value Count" src="/assets/missing-value-count.png" width=100%/>
 Pada kolom Glocose terdapat 5 data yang terdapat nilai 0, BloodPressure ada 35 data, SkinThickness ada 227 data, Insulin
-ada 374 data, dan kolom BMi ada 11 data.
+ada 374 data, dan kolom BMi ada 11 data. Untuk menangani masalah missing value digunakan metode imputasi regresi.
+
+```python
+IterativeImputer(estimator=RandomForestRegressor(), random_state=42)
+```
+
+Kode di atas adalah penggunaan regresi dengan estimator yaitu RandomForestRegressor untuk mengatasi missing value.
+Imputasi regresi bekerja dengan cara memperhitungkan hubungan antara variabel dan mempertahankan distribusi asli. Hal
+ini dapat mengurangi bias dan meningkatkan akurasi dalam mengimputasikan nilai yang hilang.
+
+**Melihat Distribusi Data pada Tiap Kolom**
+
+Menggunakan fungsi hist() untuk melihat distribusi data dari masing-masing fitur.
+<img alt="Missing Value Count" src="/assets/column-distribution.png" width=100%/>
+Dari hasil distribusi data di atas, terlihat bahwa semua fitur memiliki distribusi cenderung right-skewed. Sebagian
+besar populasi data terkonsentrasi pada bagian kiri. Pada distribusi data ini, nilai mean/rata-rata lebih besar dari
+nilai median dan juga modus.
 
 ## Data Preparation
 
