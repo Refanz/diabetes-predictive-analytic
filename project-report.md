@@ -90,7 +90,7 @@ Terlihat pada gambar di atas terdapat 768 data dan 9 kolom/fitur pada dataset. T
 masing-masing fitur. Untuk kolom Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, Age, dan Outcome memiliki
 tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki tipa data float64.
 
-**Melihat deskripsi statistik dataset**
+**Melihat deskripsi statistik pada dataset**
 
 Berikut ini adalah deskripsi statistik dari dataset.
 
@@ -142,6 +142,12 @@ Menggunakan fungsi hist() untuk melihat distribusi data dari masing-masing fitur
 Dari hasil distribusi data di atas, terlihat bahwa semua fitur memiliki distribusi cenderung right-skewed. Sebagian
 besar populasi data terkonsentrasi pada bagian kiri. Pada distribusi data ini, nilai mean/rata-rata lebih besar dari
 nilai median dan juga modus.
+
+**Melihat Korelasi Fitur**
+
+Menggunakan fungsi corr() untuk mendapatkan nilai korelasi antar fitur dan melakukan plot dengan heatmap().
+<img alt="Correlation Matrix" src="/assets/matrix-correlation.png" width=100% />
+Gambar di atas adalah heatmap yang menampilkan nilai korelasi antar fitur. Jika 
 
 ## Data Preparation
 
