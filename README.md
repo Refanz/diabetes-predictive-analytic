@@ -81,7 +81,9 @@ diabetes dan usia.
 
 ### Data Visualization and EDA
 
-**Melihat informasi dataset**
+Berikut ini adalah beberapa tahapan EDA yang telah dilakukan pada project ini.
+
+#### **Melihat informasi dataset**
 
 Berikut ini adalah informasi singkat mengenai dataset diabetes.
 <img alt="Dataset Informartion" src="/assets/dataset-info.png" width="100%"/>
@@ -89,7 +91,7 @@ Terlihat pada gambar di atas terdapat 768 data dan 9 kolom/fitur pada dataset. T
 masing-masing fitur. Untuk kolom Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, Age, dan Outcome memiliki
 tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki tipa data float64.
 
-**Melihat deskripsi statistik pada dataset**
+#### **Melihat deskripsi statistik pada dataset**
 
 Berikut ini adalah deskripsi statistik dari dataset.
 
@@ -110,7 +112,7 @@ untuk nilai minimal adalah 0. Hal ini sangat tidak mungkin karena nilai tersebut
 Oleh
 karena itu, permasalahan missing value ini perlu ditangani.
 
-**Menangani Missing Value**
+#### **Menangani Missing Value**
 
 Dari hasil fungsi describe() untuk kolom Glucose, BloodPresure, SkinThickness, Insulin, dan BMI nilai minimumnya
 adalah 0. Kondisi tersebut tidak mungkin dan dapat dianggap sebagai missing value. Berikut ini adalah potongan kode yang
@@ -134,7 +136,7 @@ Kode di atas adalah penggunaan regresi dengan estimator yaitu RandomForestRegres
 Imputasi regresi bekerja dengan cara memperhitungkan hubungan antara variabel dan mempertahankan distribusi asli. Hal
 ini dapat mengurangi bias dan meningkatkan akurasi dalam mengimputasikan nilai yang hilang.
 
-**Melihat Distribusi Data pada Tiap Kolom**
+#### **Melihat Distribusi Data pada Tiap Kolom**
 
 Menggunakan fungsi hist() untuk melihat distribusi data dari masing-masing fitur.
 <img alt="Missing Value Count" src="/assets/column-distribution.png" width=100%/>
@@ -142,19 +144,19 @@ Dari hasil distribusi data di atas, terlihat bahwa semua fitur memiliki distribu
 besar populasi data terkonsentrasi pada bagian kiri. Pada distribusi data ini, nilai mean/rata-rata lebih besar dari
 nilai median dan juga modus.
 
-**Melihat Korelasi Fitur**
+#### **Melihat Korelasi Fitur**
 
 Menggunakan fungsi corr() untuk mendapatkan nilai korelasi antar fitur dan melakukan plot dengan heatmap().
 <img alt="Correlation Matrix" src="/assets/matrix-correlation.png" width=100% />
 Gambar di atas adalah heatmap yang menampilkan nilai korelasi antar fitur.  Terlihat fitur Age dan Pregnancies memiliki korelasi sebesar 0.56, Glucose dan Insulin sebesar 0.67, dan BMI dan SkinThickness sebesar 0.69. Ketiga pasang fitur ini memiliki nilai korelasi yang cukup tinggi. Untuk pasangan fitur lainnya kurang dari 0.50 dan bisa dikatakan memiliki korelasi yang lemah.
 
-**Melihat Distribusi Risiko Wanita Diabetes dan Non-Diabetes**
+#### **Melihat Distribusi Risiko Wanita Diabetes dan Non-Diabetes**
 
 Pada dataset ini terdapat dua label yaitu diabetes dan non-diabetes.  Wanita yang berisiko diabetes berjumlah 268 orang dan non-diabates sebanyak 500 orang. Berikut ini adalah plot distribusi dari wanita berisiko diabetes dan tidak.
 
 <img alt="Diabetes Outcome" src="/assets/diabetes-outcome-dist.png" width=100%>
 
-  **Melihat Distribusi Jumlah Wanita berdasarkan Umur**
+ ####  **Melihat Distribusi Jumlah Wanita berdasarkan Umur**
 
   Rentang umur dibagi menjadi lima kategori yaitu youth, maturity, middle-maturity, full-maturity dan elderly.
 
@@ -162,7 +164,7 @@ Pada dataset ini terdapat dua label yaitu diabetes dan non-diabetes.  Wanita yan
 
 Wanita dengan kategori maturity memiliki jumlah paling banyak yaitu 295 orang, diikuti dengan kategori youth 219 orang, middle-maturity 160 orang, full-maturity 67 orang dan kategori elderly paling sedikit berjumlah 27 orang.
 
-**Melihat Distribusi Kelas berdasarkan Umur**
+#### **Melihat Distribusi Kelas berdasarkan Umur**
 
 Terdapat dua kelas yaitu diabetes dan non-diabetes. Berikut ini plot distribusi kelas berdasarkan kategori umur yaitu youth, maturity, middle-maturity, full-maturity dan elderly.
 
@@ -170,7 +172,7 @@ Terdapat dua kelas yaitu diabetes dan non-diabetes. Berikut ini plot distribusi 
 
 Terlihat pada plot distribusi di atas, wanita dengan kategori elderly yang berisiko diabetes jumlahnya 7 orang dan non-diabetes 20 orang. Kategori kedua yaitu full-maturity, wanita yang berisiko diabetes jumlahnya 39 orang dan non-diabetes 28 orang. Kemudian kategori maturity, wanita yang berisiko diabetes jumlahnya 110 orang dan non-diabetes 185 orang. Kategori keempat yaitu middle-maturity, wanita yang berisiko diabates jumlahnhya 81 orang dan 79 orang non-diabetes. Lalu, untuk kategori terakhir yaitu youth, wanita yang berisiko diabetes berjumlah 31 orang dan 188 non-diabetes.
 
-**Melihat Distribusi Kelas berdasarkan BMI**
+#### **Melihat Distribusi Kelas berdasarkan BMI**
 
 Terdapat 4 kategori dari hasil perhitungan BMI yaitu normal, obese, overweight dan underweight. Berikut ini adalah plot distribusi jumlah kelas berdasarkan nilai BMI.
 
@@ -178,7 +180,7 @@ Terdapat 4 kategori dari hasil perhitungan BMI yaitu normal, obese, overweight d
 
 Terlihat pada gambar plot distribusi di atas, wanita yang masuk dalam kategori obese berjumlah 480 orang. Kemudian untuk wanita yang termasuk dalam kategori obese dan berisiko diabetes berjumlah 221 orang dan non-diabetes 259 orang. Kemudian urutan kedua yaitu ketegori overweight 181 orang dengan wanita yang berisiko diabetes berjumlah 40 orang dan 141 orang non-diabetes. Urutan ketiga, kategori normal jumlahnya 103 orang dan wanita yang berisiko diabetes sebanyak 7 orang dan non-diabates 96 orang. Lalu, urutan terakhir yaitu kategori underweight jumlahnya 4 orang dan termasuk non-diabates.
 
-**Melihat Distribusi Kelas berdasarkan Tekanan Darah**
+#### **Melihat Distribusi Kelas berdasarkan Tekanan Darah**
 
 Terdapat 4 kategori berdasarkan hasil tekanan darah yaitu normal, pre-hypertension, stage-1-hypertension dan stage-2-hypertension.
 
@@ -187,7 +189,7 @@ Terdapat 4 kategori berdasarkan hasil tekanan darah yaitu normal, pre-hypertensi
 Terlihat pada plot distribusi di atas, wanita yang memiliki tekanan darah normal berjumlah 557 orang dengan 174 orang berisiko diabetes dan 383 non-diabates. Kemudian wanita yang masuk kategori pre-hypertension berjumlah 150 orang, dengan 64 orang berisiko diabetes dan 86 non-diabates.  Lalu, untuk wanita yang masuk ke stage-1-hypertension berjumlah 45 orang dengan 21 orang berisiko diabates dan 24 orang non-diabates. Kategori terakhir, wanita dengan stage-2-hypertension jumlahnya 16 orang dengan 9 orang berisiko diabetes dan 7 non-diabates.
 
 
-**Melihat Outlier pada Fitur-Fitur Numerik**
+#### **Melihat Outlier pada Fitur-Fitur Numerik**
 
 Terdapat delapan fitur yang dicek apakah terdapat data outlier atau tidak yaitu Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age. 
 
@@ -198,52 +200,79 @@ Terlihat pada plot di atas, untuk fitur Pregnancies, BloodPressure, SkinThicknes
 
 ## Data Preparation
 
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada
-notebook dan laporan harus berurutan.
+Berikut ini adalah teknik data preparation yang dilakukan pada dataset untuk meningkatkan kualiatas data, supaya model memiliki performa yang baik.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
+### **Melakukan Scaling Feature**
+Scaling feature adalah teknik untuk menyesuaikan rentang nilai pada  fitur supaya berada dalam rentang yang seragam. Hal ini perlu dilakukan karena ada beberapa model yang cukup sensitif dengan perbedaan rentang antara fitur contohnya model K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam rentang 0 dan 1.
 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+### **Features Selection**
+Feature Selection adalah teknik untuk memilih fitur yang paling penting untuk digunakan dalam model machine learning. Hal ini perlu dilakukan supaya performa model dapat meningkat dengan membuang fitur yang kurang penting, redundan, atau kotor. Jadi, kompleksitas model dapat dikurangi, akurasi ditingkatkan dan proses pelatihan menjadi lebih cepat. Pada project ini digunakan teknik pemilihan fitur yaitu Embedded Method.
+
+Embedded Method merupakan metode yang menggabungkan pemilihan fitur dan pelatihan model. Metode ini memungkinkan model untuk mempelajari hubungan antara fitur dan variabel target bersamaan dengan memilih fitur yang relevan dengan target.  Berikut ini potongan kode penggunaan **Embedded Method**.
+
+```python
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X, y)
+
+importance = rf_model.feature_importances_
+indices = np.argsort(importance)[::-1]
+
+threshold = 0.05
+important_features_indices = [i for i in range(len(importance)) if importance[i] >= threshold]
+```
+
+Terlihat digunakan algoritma Random Forest untuk mencari fitur yang relevan dan menetapkan threshold sebesar 0.05. Fitur yang memiliki nilai di atas sama dengan 0.05 akan dipilih.
+
+### **Melakukan Oversampling dengan SMOTE**
+Oversampling adalah teknik untuk menambahkan sampel data pada kelas minoritas sehingga jumlahnya menjadi seimbang dengan kelas mayoritas. Pada saat melakukan tahapan EDA tercatat untuk jumlah kelas diabates adalah 268 dan non-diabates 500. Dari nilai tersebut, ini menandakan keadaan imbalance dataset. Oleh karena itu, perlu dilakukan teknik oversampling pada kelas diabates. 
+
+Jika terjadi situasi imbalance dataset, perlu dilakukan teknik oversampling. Karena, model machine learning cenderung lebih baik dalam memprediksi kelas mayortas dan mengabaikan atau salah mengklasifikasikan kelas minoritas.
+
+Salah satu metode untuk menerapkan teknik oversampling adalah SMOTE. SMOTE adalah metode oversampling yang canggih dan kompleks. Metode ini menghasilkan sample data baru dengan melakukan interpolasi antara dua data minoritas yang ada untuk membuat data yang baru. Berikut ini adalah potongan kode untuk melakukan oversampling dengan metode SMOTE.
+
+```python
+# Inisialisasi SMOTE
+smote = SMOTE(random_state=42)
+
+# Melakukan oversampling pada dataset
+X_resampled, y_resampled = smote.fit_resample(X_important, y)
+```
+
+### **Dimension Reduction**
+Teknik reduksi dimensi adalah teknik untuk mengurangi jumlah fitur dengan tetap mempertahankan informasi pada data. Salah satu teknik pengurangan dimensi yang terkenal dan digunakan pada project ini adalah PCA (Principal Component Analysis). PCA adalah teknik untuk mereduksi dimensi dan mengekstraksi fitur. 
+
+Pada saat melakukan tahapan EDA terdapat beberapa fitur yang memiliki korelasi yang cukup tinggi yaitu Age dan Pregnancies memiliki korelasi sebesar 0.56, Glucose dan Insulin sebesar 0.67, dan BMI dan SkinThickness sebesar 0.69.  Salah satu kegunaan dari PCA adalah untuk mengatasi masalah multikolinearitas. Ini adalah kondisi di mana dua atau lebih variabel independen memiliki hubungan linier yang kuat satu sama lain. Pada project ini saya mencoba menetapkan threshold yaitu 0.5. Berikut ini adalah potongan kode untuk menerapkan teknik PCA.
+
+```python
+# Inisialisasi PCA
+pca = PCA(n_components=0.9, random_state=42)
+
+# Melakukan PCA untuk kolom yang memiliki korelasi cukup tinggi
+X_pca = pca.fit_transform(X_resampled[high_corr_cols])
+pca.explained_variance_.round(3)
+
+# Membuat dataframe baru untuk menyimpan hasil reduksi
+df_pca = pd.DataFrame(data=X_pca, columns=['pca_1', 'pca_2', 'pca_3', 'pca_4'])
+```
+
+Terlihat pada kode di atas, saat inisialisasi PCA untuk parameter n_components ditetapkan nilai sebesar 0.9. Parameter n_components ini membuat algoritma PCA secara otomatis menentukan jumlah komponen yang diperlukan untuk menangkap 90% variansi dari data.
+
+
+### **Melakukan Spliting Data**
+Spliting data adalah proses untuk membagi data menjadi dua bagian yaitu data training dan data test. Hal ini perlu dilakukan agar bisa melakukan uji coba model dengan data yang belum dilihat oleh model. Pada project ini pembagian dataset adalah 80:20.  Untuk membagi dataset ini digunakan fungsi train_split_test().
+
 
 ## Modeling
 
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu
-menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Pada project ini digunakan 3 jenis model yaitu K-Nearest-neighbors, Random Forest dan Logistic Regression.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
+### **Random Forest**
 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan
-  hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan
-  mengapa memilih model tersebut sebagai model terbaik**.
+
+### **K-Nearest-neighbors**
+
+
+### **Logistic Regression**
+
 
 ## Evaluation
-
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek
-berdasarkan metrik evaluasi yang digunakan.
-
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**.
-Jelaskan mengenai beberapa hal berikut:
-
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
-
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang
-diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen
-  markdown di situs
-  editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/),
-  atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan
-  keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
