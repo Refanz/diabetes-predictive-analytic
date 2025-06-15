@@ -94,7 +94,7 @@ tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki
 Berikut ini adalah deskripsi statistik dari dataset.
 
 |       | Pregnancies | Glucose    | BloodPresure | SkinThickness | Insulin    | BMI        | DiabetesPedigreeFunction | Age        | Outcome    |
-|-------|-------------|------------|--------------|---------------|------------|------------|--------------------------|------------|------------|
+| ----- | ----------- | ---------- | ------------ | ------------- | ---------- | ---------- | ------------------------ | ---------- | ---------- |
 | count | 768.000000  | 768.000000 | 768.000000   | 768.000000    | 768.000000 | 768.000000 | 768.000000               | 768.000000 | 768.000000 |
 | mean  | 3.845052    | 120.894531 | 69.105469    | 20.536458     | 79.799479  | 31.992578  | 0.471876                 | 33.240885  | 0.348958   |
 | std   | 3.369578    | 31.972618  | 19.355807    | 15.952218     | 115.244002 | 7.884160   | 0.331329                 | 11.760232  | 0.476951   |
@@ -146,7 +146,55 @@ nilai median dan juga modus.
 
 Menggunakan fungsi corr() untuk mendapatkan nilai korelasi antar fitur dan melakukan plot dengan heatmap().
 <img alt="Correlation Matrix" src="/assets/matrix-correlation.png" width=100% />
-Gambar di atas adalah heatmap yang menampilkan nilai korelasi antar fitur. Jika 
+Gambar di atas adalah heatmap yang menampilkan nilai korelasi antar fitur.  Terlihat fitur Age dan Pregnancies memiliki korelasi sebesar 0.56, Glucose dan Insulin sebesar 0.67, dan BMI dan SkinThickness sebesar 0.69. Ketiga pasang fitur ini memiliki nilai korelasi yang cukup tinggi. Untuk pasangan fitur lainnya kurang dari 0.50 dan bisa dikatakan memiliki korelasi yang lemah.
+
+**Melihat Distribusi Risiko Wanita Diabetes dan Non-Diabetes**
+
+Pada dataset ini terdapat dua label yaitu diabetes dan non-diabetes.  Wanita yang berisiko diabetes berjumlah 268 orang dan non-diabates sebanyak 500 orang. Berikut ini adalah plot distribusi dari wanita berisiko diabetes dan tidak.
+
+<img alt="Diabetes Outcome" src="/assets/diabetes-outcome-dist.png" width=100%>
+
+  **Melihat Distribusi Jumlah Wanita berdasarkan Umur**
+
+  Rentang umur dibagi menjadi lima kategori yaitu youth, maturity, middle-maturity, full-maturity dan elderly.
+
+<img alt="Diabetes Outcome" src="/assets/people-count-by-age.png" width=100%>
+
+Wanita dengan kategori maturity memiliki jumlah paling banyak yaitu 295 orang, diikuti dengan kategori youth 219 orang, middle-maturity 160 orang, full-maturity 67 orang dan kategori elderly paling sedikit berjumlah 27 orang.
+
+**Melihat Distribusi Kelas berdasarkan Umur**
+
+Terdapat dua kelas yaitu diabetes dan non-diabetes. Berikut ini plot distribusi kelas berdasarkan kategori umur yaitu youth, maturity, middle-maturity, full-maturity dan elderly.
+
+<img alt="Outcome by Age" src="/assets/outcome-by-age.png"  width=100%>
+
+Terlihat pada plot distribusi di atas, wanita dengan kategori elderly yang berisiko diabetes jumlahnya 7 orang dan non-diabetes 20 orang. Kategori kedua yaitu full-maturity, wanita yang berisiko diabetes jumlahnya 39 orang dan non-diabetes 28 orang. Kemudian kategori maturity, wanita yang berisiko diabetes jumlahnya 110 orang dan non-diabetes 185 orang. Kategori keempat yaitu middle-maturity, wanita yang berisiko diabates jumlahnhya 81 orang dan 79 orang non-diabetes. Lalu, untuk kategori terakhir yaitu youth, wanita yang berisiko diabetes berjumlah 31 orang dan 188 non-diabetes.
+
+**Melihat Distribusi Kelas berdasarkan BMI**
+
+Terdapat 4 kategori dari hasil perhitungan BMI yaitu normal, obese, overweight dan underweight. Berikut ini adalah plot distribusi jumlah kelas berdasarkan nilai BMI.
+
+<img alt="Outcome by BMI" src="/assets/outcome-by-bmi.png" width=100%>
+
+Terlihat pada gambar plot distribusi di atas, wanita yang masuk dalam kategori obese berjumlah 480 orang. Kemudian untuk wanita yang termasuk dalam kategori obese dan berisiko diabetes berjumlah 221 orang dan non-diabetes 259 orang. Kemudian urutan kedua yaitu ketegori overweight 181 orang dengan wanita yang berisiko diabetes berjumlah 40 orang dan 141 orang non-diabetes. Urutan ketiga, kategori normal jumlahnya 103 orang dan wanita yang berisiko diabetes sebanyak 7 orang dan non-diabates 96 orang. Lalu, urutan terakhir yaitu kategori underweight jumlahnya 4 orang dan termasuk non-diabates.
+
+**Melihat Distribusi Kelas berdasarkan Tekanan Darah**
+
+Terdapat 4 kategori berdasarkan hasil tekanan darah yaitu normal, pre-hypertension, stage-1-hypertension dan stage-2-hypertension.
+
+<img alt="Outcome by Blood Pressure" src="/assets/outcome-by-blood-pressure.png" width=100%>
+
+Terlihat pada plot distribusi di atas, wanita yang memiliki tekanan darah normal berjumlah 557 orang dengan 174 orang berisiko diabetes dan 383 non-diabates. Kemudian wanita yang masuk kategori pre-hypertension berjumlah 150 orang, dengan 64 orang berisiko diabetes dan 86 non-diabates.  Lalu, untuk wanita yang masuk ke stage-1-hypertension berjumlah 45 orang dengan 21 orang berisiko diabates dan 24 orang non-diabates. Kategori terakhir, wanita dengan stage-2-hypertension jumlahnya 16 orang dengan 9 orang berisiko diabetes dan 7 non-diabates.
+
+
+**Melihat Outlier pada Fitur-Fitur Numerik**
+
+Terdapat delapan fitur yang dicek apakah terdapat data outlier atau tidak yaitu Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age. 
+
+<img alt="outlier" src="/assets/outlier.png" width=100%>
+
+Terlihat pada plot di atas, untuk fitur Pregnancies, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age memiliki outlier. Lalu, hanya fitur Glucose yang tidak memiliki data outlier. Dikarenakan ini adalah kondisi fisiologis dan pasti tiap orang memiliki kondisi yang berbeda-beda. Untuk mengantisipasi kehilangan banyak informasi, maka tidak dilakukan penanganan penghapusan outlier.
+
 
 ## Data Preparation
 
