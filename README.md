@@ -354,5 +354,112 @@ Setelah proses GridSearchCV selesai, kombinasi hyperparameter terbaik yang ditem
 
 Untuk memilih model terbaik yang dapat memprediksi apakah wanita dengan kondisi fisiologis saat ini berisiko diabates atau tidak dilakukan setelah melakukan hyperparameter tuning dengan memperhatikan metrik akurasi, prediksi, recall dan f1_score.
 
-
 ## Evaluation
+
+Pada tahap evaluasi digunakan beberapa metrik yaitu confusion matrix, akurasi, prediksi, recall dan f1_score untuk menentukan model yang terbaik.
+
+### Confusion Matrix
+Confusin matrix adalah alat yang digunakan untuk mengevaluasi kinerja model klasifikasi dengan menunjukkan jumlah prediksi yang benar dan salah dalam format tabel. Berikut ini adalah emapt jenis evaluator dalam confusion matrix:
+
+- True Positive (TP): Jumlah kelas positif yang benar-benar diprediksi sebagai prositif
+- True Negative (TN): Jumlah kelas negatif yang benar-benar diprediksi sebagai negatif
+- False Positve (FP): Jumlah kelas negatif yang diprediksi sebagai positif (kesalahan tipe 1)
+- False Negative (FN): Jumlah kelas positif yang diprediksi sebagai negatif (kesalahan tipe 2)
+
+### Akurasi
+
+Akurasi adalah metrik yang digunakan untuk mengukur kinerja model klasifikasi. Akurasi dihitung sebagai proporsi dari prediksi baik (positif atau negatif) terhadap seluruh prediksi yang dilakukan oleh model.
+
+$$Akurasi = \frac{TP + TN}{TP + TN + FP + FN}$$
+
+### Precision
+
+Precision adalah metrik yang digunakan untuk mengukur seberapa baik model menghindari FP. Metrik ini adalah rasio prediksi positif yang benar terhadap semua prediksi positif yang dibuat oleh model.
+
+$$Precision = \frac{TP}{TP + FP}$$
+
+### Recall
+
+Recall adalah metrik yang digunakan untuk mengukur seberapa baik model dapat menangkap semua contoh positif. Metrik ini adalah rasio prediksi positif yang benar terhadap semua kasus positif yang sebenarnya ada dalam data.
+
+$$Recall = \frac{TP}{TP + FN}$$
+
+### F1_Score
+
+F1_Score adalah metrik yang menggabungkan presisi dan recall menjadi satu nilai tunggal yang mempehatikan keduanya. F1_Score adalah metrik yang menghitung rata-rata harmonis dari presisi dan recall, memberikan gambaran yang lebih baik ketika trade-off antara keduanya.
+
+$$F1-Score = 2 * \frac{Precision * Recall}{Precision + Recall}$$
+
+### Hasil Performa Model
+
+Berikut ini adalah hasil performa model sebelum dilakukan hyperparameter tuning dan setelah.
+
+**Sebelum Hyperparameter Tuning**
+
+Berikut ini hasil dari confusion matrix, metrik akurasi, presisi, recall dan f1_score sebelum dilakukan hyperparameter tuning.
+
+**Confusion Matrix**
+<div style="display: flex; justify-content: space-between; gap: 10px;">
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
+  <img src="/assets/cm-rf.png" alt="confusion matrix 1" >
+  <p style="font-weight:bold">Random Forest</p>
+  </div>
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
+   <img src="/assets/cm-knn.png" alt="confusion matrix 2">
+     <p style="font-weight:bold">K-Nearest-Neighbors</p>
+  </div>
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center"">
+  <img src="/assets/cm-lr.png" alt="confusion matrix 3" >
+  <p style="font-weight:bold">Logistic Regression</p>
+  </div>
+</div>
+
+**Keterangan Confusion Matrix**
+| Model | TP | TN | FP |FN |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Random Forest | 69 | 85 | 16 | 30 |
+| K-Nearest-Neighbor | 73 | 84 | 17 | 26 |
+| Logistic Regression | 76 | 79 | 22 | 23 |
+
+**Tabel Metrik Evaluasi**
+| Model | Accuracy | Precision | Recall | F1-Score |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Random Forest | 0.770 | 0.739130 | 0.841584 | 0.787037 |
+| K-Nearest-Neighbor | 0.785 | 0.763636 |  0.831683 |  0.796209 |
+| Logistic Regression | 0.775 | 0.774510 |  0.782178 |  0.778325 |
+
+**Setelah Hyperparameter Tuning**
+
+Berikut ini hasil dari confusion matrix, metrik akurasi, presisi, recall dan f1_score setelah dilakukan hyperparameter tuning.
+
+**Confusion Matrix**
+<div style="display: flex; justify-content: space-between; gap: 10px;">
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
+  <img src="/assets/cm-rf-ht.png" alt="confusion matrix 1" >
+  <p style="font-weight:bold">Random Forest</p>
+  </div>
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
+   <img src="/assets/cm-knn-ht.png" alt="confusion matrix 2">
+     <p style="font-weight:bold">K-Nearest-Neighbors</p>
+  </div>
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center"">
+  <img src="/assets/cm-lr-ht.png" alt="confusion matrix 3" >
+  <p style="font-weight:bold">Logistic Regression</p>
+  </div>
+</div>
+
+**Keterangan Confusion Matrix**
+| Model | TP | TN | FP |FN |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Random Forest | 70 | 83 | 18 | 29 |
+| K-Nearest-Neighbor | 68 | 82 | 19 | 31 |
+| Logistic Regression | 74 | 79 | 22 | 25 |
+
+**Tabel Metrik Evaluasi**
+| Model | Accuracy | Precision | Recall | F1-Score |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Random Forest | 0.765 |  0.741071 |  0.821782 | 0.779343 |
+| K-Nearest-Neighbor | 0.750 | 0.725664 |  0.811881 |  0.766355 |
+| Logistic Regression | 0.765 |  0.759615 |  0.782178 | 0.770732 |
+
+### Kesimpulan
