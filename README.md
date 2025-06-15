@@ -462,4 +462,16 @@ Berikut ini hasil dari confusion matrix, metrik akurasi, presisi, recall dan f1_
 | K-Nearest-Neighbor | 0.750 | 0.725664 |  0.811881 |  0.766355 |
 | Logistic Regression | 0.765 |  0.759615 |  0.782178 | 0.770732 |
 
+Setelah dilakukan hyperparameter tuning dapat diambil kesimpulan sebagai berikut.
+- **Model Random Forest** akurasi dari 0.770 menjadi 0.765, precision dari 0.739130 menjadi 0.741071, recall dari 0.841584 menjadi 0.821782 dan f1_score dari 0.787037 menjadi 0.779343.
+-  **Model K-Nearest-Neighbors** akurasi dari 0.785 menjadi 0.750, precision dari 0.763636 menjadi 0.725664, recall dari 0.831683 menjadi 0.811881 dan f1_score dari 0.796209 menjadi 0.766355.
+- **Model Logistic Regression** akurasi dari 0.775 menjadi 0.765, precision dari 0.774510 menjadi 0.759615, recall dari 0.782178 menjadi 0.782178 dan f1_score dari 0.778325 menjadi 0.770732.
+
+Dari hasil di atas untuk nilai metrik setelah dilakukan hyperparameter tuning mengalami penurunan. Hanya untuk model Random Forest pada metrik precision yang mengalami sedikit kenaikan.
+
 ### Kesimpulan
+Setalah dilakukan pelatihan model, hyperparameter tuning dan evaluasi model didapatkan hasil model dengan performa terbaik adalah Random Forest.
+- Accuracy: 0.765
+- Precision: 0.741071
+- Recall: 0.821782
+- F1-Score: 0.779343
