@@ -47,13 +47,12 @@ ini diharapkan agar model dapat membantu perempuan untuk mengetahui kondisinya s
 
 ### Goals
 
-- Membuat model machine learning yang dapat memprediksi risiko diabetes pada wanita berdasarkan kondisi-kondisi tubuh
-  yang ada
+- Membuat model machine learning yang dapat memprediksi risiko diabetes pada wanita berdasarkan kondisi fisiologis
 - Menggunakan teknik oversampling (SMOTE) untuk menangani kelas mintoritas (non-diabetes)
 
 ### Solution statements
 
-- Membangun model dengan menggunakan tiga algoritma berbeda
+- Membangun model dengan menggunakan tiga algoritma berbeda yaitu Random Forest, K-Nearest Neighbor, dan Logistic Regression
 - Melakukan hyperparameter tuning untuk meningkatkan kinerja dari ketiga model
 
 ## Data Understanding
@@ -66,7 +65,7 @@ tersebut.
 
 Dataset ini mencatat berbagai variabel fisiologis yang digunakan untuk menilai risiko diabetes, antara lain jumlah
 kehamilan, kadar glukosa darah, tekanan darah, ketebalan kulit, kadar insulin, indeks massa tubuh (BMI), fungsi silsilah
-diabetes, dan usia.
+diabetes dan usia.
 
 ### Variabel-variabel pada Diabetes Kaggle dataset adalah sebagai berikut:
 
