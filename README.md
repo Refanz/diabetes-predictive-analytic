@@ -319,7 +319,7 @@ threshold yaitu 0.5. Berikut ini adalah potongan kode untuk menerapkan teknik PC
 
 ```python
 # Inisialisasi PCA
-pca = PCA(n_components=0.9, random_state=42)
+pca = PCA(n_components=1, random_state=42)
 
 # Melakukan PCA untuk data train pada kolom yang memiliki korelasi cukup tinggi
 X_train_pca = pca.fit_transform(X_train_resampled[high_corr_cols])
@@ -328,13 +328,12 @@ X_train_pca = pca.fit_transform(X_train_resampled[high_corr_cols])
 X_test_pca = pca.transform(X_test_std[high_corr_cols])
 
 # Membuat dataframe baru untuk menyimpan hasil reduksi
-df_train_pca = pd.DataFrame(data=X_train_pca, columns=['pca_1', 'pca_2'])
-df_test_pca = pd.DataFrame(data=X_test_pca, columns=['pca_1', 'pca_2'])
+df_train_pca = pd.DataFrame(data=X_train_pca, columns=['pca_1'])
+df_test_pca = pd.DataFrame(data=X_test_pca, columns=['pca_1'])
 ```
 
-Terlihat pada kode di atas, saat inisialisasi PCA untuk parameter n_components ditetapkan nilai sebesar 0.9. Parameter
-n_components ini membuat algoritma PCA secara otomatis menentukan jumlah komponen yang diperlukan untuk menangkap 90%
-variansi dari data.
+Terlihat pada kode di atas, saat inisialisasi PCA untuk parameter n_components nilainya adalah satu. Parameter ini
+digunakan untuk menentukan jumlah dimensi yang ingin disimpan setelah transformasi.
 
 ## Modeling
 
@@ -364,16 +363,15 @@ Kemudian saat melakukan hyperparameter tuning menggunakan GridSearchCV, paramete
 
 Setelah proses GridSearchCV selesai, kombinasi hyperparameter terbaik yang ditemukan adalah:
 
-- n_estimators: 300
+- n_estimators: 100
 - min_samples_split: 3
-- max_depth: 9
+- max_depth: 8
 
 **Kelebihan Random Forest**
 
 - Memberikan akurasi yang baik katena menggabungkan banyak Decision Tree
 - Mengurangi risiko overfitting dengan menggabungkan hasil dari banyak Decision Tree
 - Dapat menangani data dengan kelas yang tidak seimbang
--
 
 **Kekurangan Random Forest**
 
@@ -398,8 +396,8 @@ Kemudian saat melakukan hyperparameter tuning menggunakan GridSearchCV, paramete
 
 Setelah proses GridSearchCV selesai, kombinasi hyperparameter terbaik yang ditemukan adalah:
 
-- n_neighbors: 7
-- metric: manhattan
+- n_neighbors: 6
+- metric: minkowski
 
 **Kelebihan K-Nearest-Neighbor**
 
@@ -432,7 +430,7 @@ Kemudian saat melakukan hyperparameter tuning menggunakan GridSearchCV, paramete
 Setelah proses GridSearchCV selesai, kombinasi hyperparameter terbaik yang ditemukan adalah:
 
 - C: 10
-- penalty: l1
+- penalty: l2
 - solver:  liblinear
 
 **Kelebihan Logistic Regression**
