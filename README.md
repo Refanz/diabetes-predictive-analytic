@@ -536,7 +536,7 @@ tuning.
 | Model               | Accuracy | Precision | Recall   | F1-Score |
 |---------------------|----------|-----------|----------|----------|
 | Random Forest       | 0.714286 | 0.586207  | 0.629630 | 0.607143 |
-| K-Nearest-Neighbor  | 0.759740 |  0.634921 | 0.740741 | 0.683761 |
+| K-Nearest-Neighbor  | 0.759740 | 0.634921  | 0.740741 | 0.683761 |
 | Logistic Regression | 0.714286 | 0.578125  | 0.685185 | 0.627119 |
 
 **Setelah Hyperparameter Tuning**
@@ -571,34 +571,37 @@ tuning.
 
 **Tabel Metrik Evaluasi**
 
-| Model               | Accuracy | Precision | Recall   | F1-Score  |
-|---------------------|----------|-----------|----------|-----------|
-| Random Forest       | 0.720779 | 0.579710  | 0.740741 | 0.650407  |
-| K-Nearest-Neighbor  | 0.746753 |  0.636364 | 0.648148 | 0.642202  |
-| Logistic Regression | 0.714286 |  0.583333 | 0.648148 | 0.614035  |
+| Model               | Accuracy | Precision | Recall   | F1-Score |
+|---------------------|----------|-----------|----------|----------|
+| Random Forest       | 0.720779 | 0.579710  | 0.740741 | 0.650407 |
+| K-Nearest-Neighbor  | 0.746753 | 0.636364  | 0.648148 | 0.642202 |
+| Logistic Regression | 0.714286 | 0.583333  | 0.648148 | 0.614035 |
 
 Setelah dilakukan hyperparameter tuning dapat diambil kesimpulan sebagai berikut.
 
-- **Model Random Forest** akurasi dari 0.720779 menjadi 0.733766, precision dari 0.593220 menjadi 0.594203, recall dari
-  0.648148 menjadi 0.759259 dan f1_score dari 0.619469 menjadi 0.666667.
-- **Model K-Nearest-Neighbors** akurasi dari 0.740260 menjadi 0.707792, precision dari 0.602941 menjadi 0.569231, recall
-  dari 0.759259 menjadi 0.685185 dan f1_score dari 0.672131 menjadi 0.621849.
-- **Model Logistic Regression** akurasi dari 0.714286 menjadi 0.727273, precision dari 0.578125 menjadi 0.590909, recall
-  dari
-  0.685185 menjadi 0.722222 dan f1_score dari 0.627119 menjadi 0.650000.
+- **Model Random Forest** akurasi dari 0.714286 menjadi 0.720779, precision dari 0.586207 menjadi 0.579710, recall dari
+  0.629630 menjadi 0.740741 dan f1_score dari 0.607143 menjadi 0.650407.
+- **Model K-Nearest-Neighbors** akurasi dari 0.759740 menjadi 0.746753, precision dari 0.634921 menjadi 0.636364, recall
+  dari 0.740741 menjadi 0.648148 dan f1_score dari 0.683761 menjadi 0.642202.
+- **Model Logistic Regression** akurasi tetap pada 0.714286, precision dari 0.578125 menjadi 0.583333, recall
+  dari 0.685185 menjadi 0.648148 dan f1_score dari 0.627119 menjadi 0.614035.
 
 Dari hasil di atas untuk nilai metrik setelah dilakukan hyperparameter tuning ada yang mengalami kenaikan ada yang
 turun.
-Untuk model Random Forest metrik akurasi, precision, recall dan f1-score mengalami kenaikan. Kemudian untuk model KNN,
-metrik akurasi, precision, recall dan f1-score mengalami penurunan. Lalu, model Logistic Regresion untuk metrik akurasi,
-precision, recall dan f1-score mengalami kenaikan.
+
+- Model Random Forest metrik akurasi, recall dan f1-score mengalami kenaikan. Kemudian, untuk metrik precision mengalami
+  penurunan
+- Model KNN, metrik akurasi, recall dan f1-score mengalami penuruan. Kemudian, untuk metrik precision mengalami sedikit
+  kenaikan
+- Model Logistic Regresion untuk metrik akurasi tetap,lalu untuk metrik precision mengalami kenaikan. Kemudian untuk
+  metrik recall dan f1-score mengalami penuruan
 
 ### Kesimpulan
 
 Setalah dilakukan pelatihan model, hyperparameter tuning dan evaluasi model didapatkan hasil model dengan performa
-terbaik adalah Random Forest.
+terbaik adalah KNN. Hal ini mempertimbangan nilai akurasi yang paling baik dari 2 model lainnya.
 
-- Accuracy: 0.733766
-- Precision: 0.594203
-- Recall: 0.759259
-- F1-Score: 0.666667
+- Accuracy: 0.746753
+- Precision: 0.636364
+- Recall: 0.648148
+- F1-Score: 0.642202 
