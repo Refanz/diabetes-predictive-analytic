@@ -131,9 +131,12 @@ karena itu, permasalahan missing value ini perlu ditangani.
 
 Menggunakan fungsi hist() untuk melihat distribusi data dari masing-masing fitur.
 <img alt="Missing Value Count" src="assets/column-distribution.png" width=100%/>
-Dari hasil distribusi data di atas, terlihat bahwa semua fitur memiliki distribusi cenderung right-skewed. Sebagian
-besar populasi data terkonsentrasi pada bagian kiri. Pada distribusi data ini, nilai mean/rata-rata lebih besar dari
-nilai median dan juga modus.
+Dari hasil distribusi data di atas, sebagian besar variabel kesehatan dalam dataset memiliki hubungan positif yang lemah
+hingga sedang satu sama lain, artinya ketika satu nilai cenderung naik, nilai lainnya juga cenderung naik. Korelasi
+positif yang paling menonjol dan terkuat adalah antara Age (Usia) dan Pregnancies (Jumlah Kehamilan). Selain itu,
+hubungan yang cukup berarti juga terlihat antara SkinThickness (Ketebalan Kulit) dengan Insulin dan BMI. Di sisi lain,
+hampir tidak ada korelasi negatif yang kuat dalam data ini, karena semua hubungan negatif yang ada nilainya sangat kecil
+dan mendekati nol, menandakan tidak ada hubungan terbalik yang signifikan antar variabel.
 
 #### Melihat Korelasi Fitur
 
@@ -277,7 +280,8 @@ ini dapat mengurangi bias dan meningkatkan akurasi dalam mengimputasikan nilai y
 
 Scaling feature adalah teknik untuk menyesuaikan rentang nilai pada fitur supaya berada dalam rentang yang seragam. Hal
 ini perlu dilakukan karena ada beberapa model yang cukup sensitif dengan perbedaan rentang antara fitur contohnya model
-K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam rentang 0 dan 1.
+K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam
+rentang [0, 1].
 
 ### Melakukan Oversampling dengan SMOTE
 
