@@ -110,16 +110,16 @@ tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki
 
 Berikut ini adalah deskripsi statistik dari dataset.
 
-|       | Pregnancies | Glucose    | BloodPresure | SkinThickness | Insulin    | BMI        | DiabetesPedigreeFunction | Age        | Outcome    |
-|-------|-------------|------------|--------------|---------------|------------|------------|--------------------------|------------|------------|
-| count | 768.000000  | 768.000000 | 768.000000   | 768.000000    | 768.000000 | 768.000000 | 768.000000               | 768.000000 | 768.000000 |
-| mean  | 3.845052    | 120.894531 | 69.105469    | 20.536458     | 79.799479  | 31.992578  | 0.471876                 | 33.240885  | 0.348958   |
-| std   | 3.369578    | 31.972618  | 19.355807    | 15.952218     | 115.244002 | 7.884160   | 0.331329                 | 11.760232  | 0.476951   |
-| min   | 0.000000    | 0.000000   | 0.000000     | 0.000000      | 0.000000   | 0.000000   | 0.078000                 | 21.000000  | 0.000000   |
-| 25%   | 1.000000    | 99.000000  | 62.000000    | 0.000000      | 0.000000   | 27.300000  | 0.243750                 | 24.000000  | 0.000000   |
-| 50%   | 3.000000    | 117.000000 | 72.000000    | 23.000000     | 30.500000  | 32.000000  | 0.372500                 | 29.000000  | 0.000000   |
-| 75%   | 6.000000    | 140.250000 | 80.000000    | 32.000000     | 127.250000 | 36.600000  | 0.626250                 | 41.000000  | 1.000000   |
-| max   | 17.000000   | 199.000000 | 122.000000   | 99.000000     | 846.000000 | 67.100000  | 2.420000                 | 81.000000  | 1.000000   |
+|       | Pregnancies | Glucose    | BloodPressure | SkinThickness | Insulin    | BMI        | DiabetesPedigreeFunction | Age        | Outcome    |
+|-------|-------------|------------|---------------|---------------|------------|------------|--------------------------|------------|------------|
+| count | 768.000000  | 768.000000 | 768.000000    | 768.000000    | 768.000000 | 768.000000 | 768.000000               | 768.000000 | 768.000000 |
+| mean  | 3.845052    | 120.894531 | 69.105469     | 20.536458     | 79.799479  | 31.992578  | 0.471876                 | 33.240885  | 0.348958   |
+| std   | 3.369578    | 31.972618  | 19.355807     | 15.952218     | 115.244002 | 7.884160   | 0.331329                 | 11.760232  | 0.476951   |
+| min   | 0.000000    | 0.000000   | 0.000000      | 0.000000      | 0.000000   | 0.000000   | 0.078000                 | 21.000000  | 0.000000   |
+| 25%   | 1.000000    | 99.000000  | 62.000000     | 0.000000      | 0.000000   | 27.300000  | 0.243750                 | 24.000000  | 0.000000   |
+| 50%   | 3.000000    | 117.000000 | 72.000000     | 23.000000     | 30.500000  | 32.000000  | 0.372500                 | 29.000000  | 0.000000   |
+| 75%   | 6.000000    | 140.250000 | 80.000000     | 32.000000     | 127.250000 | 36.600000  | 0.626250                 | 41.000000  | 1.000000   |
+| max   | 17.000000   | 199.000000 | 122.000000    | 99.000000     | 846.000000 | 67.100000  | 2.420000                 | 81.000000  | 1.000000   |
 
 Dari tabel di atas terlihat jumlah, rata-rata, standard deviasi, nilai minimum dan maksimum, dan kuartil 1 - 3 untuk
 masing-masing fitur numerik. Pada tabel terlihat untuk kolom Glucose, BloodPresure, SkinThickness, Insulin, dan BMI
@@ -208,8 +208,8 @@ SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age.
 <img alt="outlier" src="assets/outlier.png" width=100%>
 
 Terlihat pada plot di atas, untuk fitur Pregnancies, BloodPressure, SkinThickness, Insulin, BMI,
-DiabetesPedigreeFunction dan Age memiliki outlier. Lalu, hanya fitur Glucose yang tidak memiliki data outlier.
-Dikarenakan ini adalah kondisi fisiologis dan pasti tiap orang memiliki kondisi yang berbeda-beda. Untuk mengantisipasi
+DiabetesPedigreeFunction, Glucose dan Age memiliki outlier. Dikarenakan ini adalah kondisi fisiologis dan pasti tiap
+orang memiliki kondisi yang berbeda-beda. Untuk mengantisipasi
 kehilangan banyak informasi, maka tidak dilakukan penanganan penghapusan outlier.
 
 ## Data Preparation
@@ -277,9 +277,7 @@ ini dapat mengurangi bias dan meningkatkan akurasi dalam mengimputasikan nilai y
 
 Scaling feature adalah teknik untuk menyesuaikan rentang nilai pada fitur supaya berada dalam rentang yang seragam. Hal
 ini perlu dilakukan karena ada beberapa model yang cukup sensitif dengan perbedaan rentang antara fitur contohnya model
-K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam rentang 0 dan
-
-1.
+K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam rentang 0 dan 1.
 
 ### Melakukan Oversampling dengan SMOTE
 
@@ -505,34 +503,37 @@ Berikut ini hasil dari confusion matrix, metrik akurasi, presisi, recall dan f1_
 tuning.
 
 **Confusion Matrix**
+
 <div style="display: flex; justify-content: space-between; gap: 10px;">
   <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
-  <img src="/assets/cm-rf.png" alt="confusion matrix 1" >
+  <img src="assets/cm-rf.png" alt="confusion matrix 1" >
   <p style="font-weight:bold">Random Forest</p>
   </div>
   <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
-   <img src="/assets/cm-knn.png" alt="confusion matrix 2">
+   <img src="assets/cm-knn.png" alt="confusion matrix 2">
      <p style="font-weight:bold">K-Nearest-Neighbors</p>
   </div>
-  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center"">
-  <img src="/assets/cm-lr.png" alt="confusion matrix 3" >
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
+  <img src="assets/cm-lr.png" alt="confusion matrix 3" >
   <p style="font-weight:bold">Logistic Regression</p>
   </div>
 </div>
 
 **Keterangan Confusion Matrix**
-| Model | TP | TN | FP |FN |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| Random Forest | 76 | 35 | 19 | 24 |
-| K-Nearest-Neighbor | 73 | 41 | 13 | 27 |
+
+| Model               | TP | TN | FP | FN |
+|---------------------|----|----|----|----|
+| Random Forest       | 76 | 35 | 19 | 24 |
+| K-Nearest-Neighbor  | 73 | 41 | 13 | 27 |
 | Logistic Regression | 73 | 37 | 17 | 27 |
 
 **Tabel Metrik Evaluasi**
-| Model | Accuracy | Precision | Recall | F1-Score |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| Random Forest | 0.720779 | 0.593220 | 0.648148 | 0.619469 |
-| K-Nearest-Neighbor | 0.740260 | 0.602941 | 0.759259 | 0.672131 |
-| Logistic Regression | 0.714286 | 0.578125 | 0.685185 | 0.627119 |
+
+| Model               | Accuracy | Precision | Recall   | F1-Score |
+|---------------------|----------|-----------|----------|----------|
+| Random Forest       | 0.720779 | 0.593220  | 0.648148 | 0.619469 |
+| K-Nearest-Neighbor  | 0.740260 | 0.602941  | 0.759259 | 0.672131 |
+| Logistic Regression | 0.714286 | 0.578125  | 0.685185 | 0.627119 |
 
 **Setelah Hyperparameter Tuning**
 
@@ -540,34 +541,37 @@ Berikut ini hasil dari confusion matrix, metrik akurasi, presisi, recall dan f1_
 tuning.
 
 **Confusion Matrix**
+
 <div style="display: flex; justify-content: space-between; gap: 10px;">
   <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
-  <img src="/assets/cm-rf-ht.png" alt="confusion matrix 1" >
+  <img src="assets/cm-rf-ht.png" alt="confusion matrix 1" >
   <p style="font-weight:bold">Random Forest</p>
   </div>
   <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
-   <img src="/assets/cm-knn-ht.png" alt="confusion matrix 2">
+   <img src="assets/cm-knn-ht.png" alt="confusion matrix 2">
      <p style="font-weight:bold">K-Nearest-Neighbors</p>
   </div>
-  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center"">
-  <img src="/assets/cm-lr-ht.png" alt="confusion matrix 3" >
+  <div style="width: 32%; height: auto; display:flex; flex-direction:column;align-items:center">
+  <img src="assets/cm-lr-ht.png" alt="confusion matrix 3">
   <p style="font-weight:bold">Logistic Regression</p>
   </div>
 </div>
 
 **Keterangan Confusion Matrix**
-| Model | TP | TN | FP |FN |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| Random Forest | 72 | 41 | 13 | 28 |
-| K-Nearest-Neighbor | 72 | 37 | 17 | 28 |
+
+| Model               | TP | TN | FP | FN |
+|---------------------|----|----|----|----|
+| Random Forest       | 72 | 41 | 13 | 28 |
+| K-Nearest-Neighbor  | 72 | 37 | 17 | 28 |
 | Logistic Regression | 73 | 39 | 15 | 27 |
 
 **Tabel Metrik Evaluasi**
-| Model | Accuracy | Precision | Recall | F1-Score |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| Random Forest | 0.733766 | 0.594203 | 0.759259 | 0.666667 |
-| K-Nearest-Neighbor | 0.707792 | 0.569231 | 0.685185 | 0.621849 |
-| Logistic Regression | 0.727273 | 0.590909 | 0.722222 | 0.650000 |
+
+| Model               | Accuracy | Precision | Recall   | F1-Score |
+|---------------------|----------|-----------|----------|----------|
+| Random Forest       | 0.733766 | 0.594203  | 0.759259 | 0.666667 |
+| K-Nearest-Neighbor  | 0.707792 | 0.569231  | 0.685185 | 0.621849 |
+| Logistic Regression | 0.727273 | 0.590909  | 0.722222 | 0.650000 |
 
 Setelah dilakukan hyperparameter tuning dapat diambil kesimpulan sebagai berikut.
 
