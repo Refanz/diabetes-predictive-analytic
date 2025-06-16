@@ -527,16 +527,16 @@ tuning.
 
 | Model               | TP | TN | FP | FN |
 |---------------------|----|----|----|----|
-| Random Forest       | 76 | 35 | 19 | 24 |
-| K-Nearest-Neighbor  | 73 | 41 | 13 | 27 |
+| Random Forest       | 76 | 34 | 20 | 24 |
+| K-Nearest-Neighbor  | 77 | 40 | 14 | 23 |
 | Logistic Regression | 73 | 37 | 17 | 27 |
 
 **Tabel Metrik Evaluasi**
 
 | Model               | Accuracy | Precision | Recall   | F1-Score |
 |---------------------|----------|-----------|----------|----------|
-| Random Forest       | 0.720779 | 0.593220  | 0.648148 | 0.619469 |
-| K-Nearest-Neighbor  | 0.740260 | 0.602941  | 0.759259 | 0.672131 |
+| Random Forest       | 0.714286 | 0.586207  | 0.629630 | 0.607143 |
+| K-Nearest-Neighbor  | 0.759740 |  0.634921 | 0.740741 | 0.683761 |
 | Logistic Regression | 0.714286 | 0.578125  | 0.685185 | 0.627119 |
 
 **Setelah Hyperparameter Tuning**
@@ -565,17 +565,17 @@ tuning.
 
 | Model               | TP | TN | FP | FN |
 |---------------------|----|----|----|----|
-| Random Forest       | 72 | 41 | 13 | 28 |
-| K-Nearest-Neighbor  | 72 | 37 | 17 | 28 |
-| Logistic Regression | 73 | 39 | 15 | 27 |
+| Random Forest       | 71 | 40 | 14 | 29 |
+| K-Nearest-Neighbor  | 80 | 35 | 19 | 20 |
+| Logistic Regression | 75 | 35 | 19 | 25 |
 
 **Tabel Metrik Evaluasi**
 
-| Model               | Accuracy | Precision | Recall   | F1-Score |
-|---------------------|----------|-----------|----------|----------|
-| Random Forest       | 0.733766 | 0.594203  | 0.759259 | 0.666667 |
-| K-Nearest-Neighbor  | 0.707792 | 0.569231  | 0.685185 | 0.621849 |
-| Logistic Regression | 0.727273 | 0.590909  | 0.722222 | 0.650000 |
+| Model               | Accuracy | Precision | Recall   | F1-Score  |
+|---------------------|----------|-----------|----------|-----------|
+| Random Forest       | 0.720779 | 0.579710  | 0.740741 | 0.650407  |
+| K-Nearest-Neighbor  | 0.746753 |  0.636364 | 0.648148 | 0.642202  |
+| Logistic Regression | 0.714286 |  0.583333 | 0.648148 | 0.614035  |
 
 Setelah dilakukan hyperparameter tuning dapat diambil kesimpulan sebagai berikut.
 
