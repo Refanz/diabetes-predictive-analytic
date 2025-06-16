@@ -92,7 +92,7 @@ Berikut ini adalah beberapa tahapan EDA yang telah dilakukan pada project ini.
 #### Melihat Informasi Dataset
 
 Berikut ini adalah informasi singkat mengenai dataset diabetes.
-<img alt="Dataset Informartion" src="/assets/dataset-info.png" width="100%"/>
+<img alt="Dataset Informartion" src="assets/dataset-info.png" width="100%"/>
 Terlihat pada gambar di atas terdapat 768 data dan 9 kolom/fitur pada dataset. Tidak ditemukan adanya missing value pada
 masing-masing fitur. Untuk kolom Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, Age, dan Outcome memiliki
 tipe data int64. Kemudian, untuk kolom BMI dan DiabetesPedigreeFunction memiliki tipa data float64.
@@ -118,34 +118,10 @@ untuk nilai minimal adalah 0. Hal ini sangat tidak mungkin karena nilai tersebut
 Oleh
 karena itu, permasalahan missing value ini perlu ditangani.
 
-#### Menangani Missing Value
-
-Dari hasil fungsi describe() untuk kolom Glucose, BloodPresure, SkinThickness, Insulin, dan BMI nilai minimumnya
-adalah 0. Kondisi tersebut tidak mungkin dan dapat dianggap sebagai missing value. Berikut ini adalah potongan kode yang
-digunakan untuk menghitung jumlah data yang bernilai 0.
-
-```python
-miss_val_count = (diabetes_df[col] == 0).sum()
-```
-
-Gambar di bawah ini adalah jumlah data yang terdapat 0 pada masing-masing kolom.
-
-<img alt="Missing Value Count" src="/assets/missing-value-count.png" width=100%/>
-Pada kolom Glocose terdapat 5 data yang terdapat nilai 0, BloodPressure ada 35 data, SkinThickness ada 227 data, Insulin
-ada 374 data, dan kolom BMi ada 11 data. Untuk menangani masalah missing value digunakan metode imputasi regresi.
-
-```python
-IterativeImputer(estimator=RandomForestRegressor(), random_state=42)
-```
-
-Kode di atas adalah penggunaan regresi dengan estimator yaitu RandomForestRegressor untuk mengatasi missing value.
-Imputasi regresi bekerja dengan cara memperhitungkan hubungan antara variabel dan mempertahankan distribusi asli. Hal
-ini dapat mengurangi bias dan meningkatkan akurasi dalam mengimputasikan nilai yang hilang.
-
 #### Melihat Distribusi Data pada Tiap Kolom
 
 Menggunakan fungsi hist() untuk melihat distribusi data dari masing-masing fitur.
-<img alt="Missing Value Count" src="/assets/column-distribution.png" width=100%/>
+<img alt="Missing Value Count" src="assets/column-distribution.png" width=100%/>
 Dari hasil distribusi data di atas, terlihat bahwa semua fitur memiliki distribusi cenderung right-skewed. Sebagian
 besar populasi data terkonsentrasi pada bagian kiri. Pada distribusi data ini, nilai mean/rata-rata lebih besar dari
 nilai median dan juga modus.
@@ -153,20 +129,20 @@ nilai median dan juga modus.
 #### Melihat Korelasi Fitur
 
 Menggunakan fungsi corr() untuk mendapatkan nilai korelasi antar fitur dan melakukan plot dengan heatmap().
-<img alt="Correlation Matrix" src="/assets/matrix-correlation.png" width=100% />
+<img alt="Correlation Matrix" src="assets/matrix-correlation.png" width=100% />
 Gambar di atas adalah heatmap yang menampilkan nilai korelasi antar fitur.  Terlihat fitur Age dan Pregnancies memiliki korelasi sebesar 0.56, Glucose dan Insulin sebesar 0.67, dan BMI dan SkinThickness sebesar 0.69. Ketiga pasang fitur ini memiliki nilai korelasi yang cukup tinggi. Untuk pasangan fitur lainnya kurang dari 0.50 dan bisa dikatakan memiliki korelasi yang lemah.
 
 #### Melihat Distribusi Risiko Wanita Diabetes dan Non-Diabetes
 
 Pada dataset ini terdapat dua label yaitu diabetes dan non-diabetes.  Wanita yang berisiko diabetes berjumlah 268 orang dan non-diabates sebanyak 500 orang. Berikut ini adalah plot distribusi dari wanita berisiko diabetes dan tidak.
 
-<img alt="Diabetes Outcome" src="/assets/diabetes-outcome-dist.png" width=100%>
+<img alt="Diabetes Outcome" src="assets/diabetes-outcome-dist.png" width=100%>
 
  ####  Melihat Distribusi Jumlah Wanita berdasarkan Umur
 
   Rentang umur dibagi menjadi lima kategori yaitu youth, maturity, middle-maturity, full-maturity dan elderly.
 
-<img alt="Diabetes Outcome" src="/assets/people-count-by-age.png" width=100%>
+<img alt="Diabetes Outcome" src="assets/people-count-by-age.png" width=100%>
 
 Wanita dengan kategori maturity memiliki jumlah paling banyak yaitu 295 orang, diikuti dengan kategori youth 219 orang, middle-maturity 160 orang, full-maturity 67 orang dan kategori elderly paling sedikit berjumlah 27 orang.
 
@@ -174,7 +150,7 @@ Wanita dengan kategori maturity memiliki jumlah paling banyak yaitu 295 orang, d
 
 Terdapat dua kelas yaitu diabetes dan non-diabetes. Berikut ini plot distribusi kelas berdasarkan kategori umur yaitu youth, maturity, middle-maturity, full-maturity dan elderly.
 
-<img alt="Outcome by Age" src="/assets/outcome-by-age.png"  width=100%>
+<img alt="Outcome by Age" src="assets/outcome-by-age.png"  width=100%>
 
 Terlihat pada plot distribusi di atas, wanita dengan kategori elderly yang berisiko diabetes jumlahnya 7 orang dan non-diabetes 20 orang. Kategori kedua yaitu full-maturity, wanita yang berisiko diabetes jumlahnya 39 orang dan non-diabetes 28 orang. Kemudian kategori maturity, wanita yang berisiko diabetes jumlahnya 110 orang dan non-diabetes 185 orang. Kategori keempat yaitu middle-maturity, wanita yang berisiko diabates jumlahnhya 81 orang dan 79 orang non-diabetes. Lalu, untuk kategori terakhir yaitu youth, wanita yang berisiko diabetes berjumlah 31 orang dan 188 non-diabetes.
 
@@ -182,7 +158,7 @@ Terlihat pada plot distribusi di atas, wanita dengan kategori elderly yang beris
 
 Terdapat 4 kategori dari hasil perhitungan BMI yaitu normal, obese, overweight dan underweight. Berikut ini adalah plot distribusi jumlah kelas berdasarkan nilai BMI.
 
-<img alt="Outcome by BMI" src="/assets/outcome-by-bmi.png" width=100%>
+<img alt="Outcome by BMI" src="assets/outcome-by-bmi.png" width=100%>
 
 Terlihat pada gambar plot distribusi di atas, wanita yang masuk dalam kategori obese berjumlah 480 orang. Kemudian untuk wanita yang termasuk dalam kategori obese dan berisiko diabetes berjumlah 221 orang dan non-diabetes 259 orang. Kemudian urutan kedua yaitu ketegori overweight 181 orang dengan wanita yang berisiko diabetes berjumlah 40 orang dan 141 orang non-diabetes. Urutan ketiga, kategori normal jumlahnya 103 orang dan wanita yang berisiko diabetes sebanyak 7 orang dan non-diabates 96 orang. Lalu, urutan terakhir yaitu kategori underweight jumlahnya 4 orang dan termasuk non-diabates.
 
@@ -190,7 +166,7 @@ Terlihat pada gambar plot distribusi di atas, wanita yang masuk dalam kategori o
 
 Terdapat 4 kategori berdasarkan hasil tekanan darah yaitu normal, pre-hypertension, stage-1-hypertension dan stage-2-hypertension.
 
-<img alt="Outcome by Blood Pressure" src="/assets/outcome-by-blood-pressure.png" width=100%>
+<img alt="Outcome by Blood Pressure" src="assets/outcome-by-blood-pressure.png" width=100%>
 
 Terlihat pada plot distribusi di atas, wanita yang memiliki tekanan darah normal berjumlah 557 orang dengan 174 orang berisiko diabetes dan 383 non-diabates. Kemudian wanita yang masuk kategori pre-hypertension berjumlah 150 orang, dengan 64 orang berisiko diabetes dan 86 non-diabates.  Lalu, untuk wanita yang masuk ke stage-1-hypertension berjumlah 45 orang dengan 21 orang berisiko diabates dan 24 orang non-diabates. Kategori terakhir, wanita dengan stage-2-hypertension jumlahnya 16 orang dengan 9 orang berisiko diabetes dan 7 non-diabates.
 
@@ -199,7 +175,7 @@ Terlihat pada plot distribusi di atas, wanita yang memiliki tekanan darah normal
 
 Terdapat delapan fitur yang dicek apakah terdapat data outlier atau tidak yaitu Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age. 
 
-<img alt="outlier" src="/assets/outlier.png" width=100%>
+<img alt="outlier" src="assets/outlier.png" width=100%>
 
 Terlihat pada plot di atas, untuk fitur Pregnancies, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age memiliki outlier. Lalu, hanya fitur Glucose yang tidak memiliki data outlier. Dikarenakan ini adalah kondisi fisiologis dan pasti tiap orang memiliki kondisi yang berbeda-beda. Untuk mengantisipasi kehilangan banyak informasi, maka tidak dilakukan penanganan penghapusan outlier.
 
@@ -207,9 +183,6 @@ Terlihat pada plot di atas, untuk fitur Pregnancies, BloodPressure, SkinThicknes
 ## Data Preparation
 
 Berikut ini adalah teknik data preparation yang dilakukan pada dataset untuk meningkatkan kualiatas data, supaya model memiliki performa yang baik dalam memprediksi apakah wanita dengan kondisi fisiologis saat ini  berisiko terkena diabetes atau tidak.
-
-### Melakukan Scaling Feature
-Scaling feature adalah teknik untuk menyesuaikan rentang nilai pada  fitur supaya berada dalam rentang yang seragam. Hal ini perlu dilakukan karena ada beberapa model yang cukup sensitif dengan perbedaan rentang antara fitur contohnya model K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam rentang 0 dan 1.
 
 ### Features Selection
 Feature Selection adalah teknik untuk memilih fitur yang paling penting untuk digunakan dalam model machine learning. Hal ini perlu dilakukan supaya performa model dapat meningkat dengan membuang fitur yang kurang penting, redundan, atau kotor. Jadi, kompleksitas model dapat dikurangi, akurasi ditingkatkan dan proses pelatihan menjadi lebih cepat. Pada project ini digunakan teknik pemilihan fitur yaitu Embedded Method.
@@ -228,6 +201,36 @@ important_features_indices = [i for i in range(len(importance)) if importance[i]
 ```
 
 Terlihat digunakan algoritma Random Forest untuk mencari fitur yang relevan dan menetapkan threshold sebesar 0.05. Fitur yang memiliki nilai di atas sama dengan 0.05 akan dipilih.
+
+### Melakukan Spliting Data
+Spliting data adalah proses untuk membagi data menjadi dua bagian yaitu data training dan data test. Hal ini perlu dilakukan agar bisa melakukan uji coba model dengan data yang belum dilihat oleh model. Pada project ini pembagian dataset adalah 80:20.  Untuk membagi dataset ini digunakan fungsi train_split_test().
+
+### Melakukan Scaling Feature
+Scaling feature adalah teknik untuk menyesuaikan rentang nilai pada  fitur supaya berada dalam rentang yang seragam. Hal ini perlu dilakukan karena ada beberapa model yang cukup sensitif dengan perbedaan rentang antara fitur contohnya model K-Nearest-neighbors. Pada project ini digunakan **MinMaxScaler()** untuk mengubah skala fitur berada dalam rentang 0 dan 1.
+
+### Imputasi Data
+
+Dari hasil fungsi describe() untuk kolom Glucose, BloodPresure, SkinThickness, Insulin, dan BMI nilai minimumnya
+adalah 0. Kondisi tersebut tidak mungkin dan dapat dianggap sebagai missing value. Berikut ini adalah potongan kode yang
+digunakan untuk menghitung jumlah data yang bernilai 0.
+
+```python
+miss_val_count = (diabetes_df[col] == 0).sum()
+```
+
+Gambar di bawah ini adalah jumlah data yang terdapat 0 pada masing-masing kolom.
+
+<img alt="Missing Value Count" src="assets/missing-value-count.png" width=100%/>
+Pada kolom Glocose terdapat 5 data yang terdapat nilai 0, BloodPressure ada 35 data, SkinThickness ada 227 data, Insulin
+ada 374 data, dan kolom BMi ada 11 data. Untuk menangani masalah missing value digunakan metode imputasi regresi.
+
+```python
+IterativeImputer(estimator=RandomForestRegressor(), random_state=42)
+```
+
+Kode di atas adalah penggunaan regresi dengan estimator yaitu RandomForestRegressor untuk mengatasi missing value.
+Imputasi regresi bekerja dengan cara memperhitungkan hubungan antara variabel dan mempertahankan distribusi asli. Hal
+ini dapat mengurangi bias dan meningkatkan akurasi dalam mengimputasikan nilai yang hilang.
 
 ### Melakukan Oversampling dengan SMOTE
 Oversampling adalah teknik untuk menambahkan sampel data pada kelas minoritas sehingga jumlahnya menjadi seimbang dengan kelas mayoritas. Pada saat melakukan tahapan EDA tercatat untuk jumlah kelas diabates adalah 268 dan non-diabates 500. Dari nilai tersebut, ini menandakan keadaan imbalance dataset. Oleh karena itu, perlu dilakukan teknik oversampling pada kelas diabates. 
@@ -262,11 +265,6 @@ df_pca = pd.DataFrame(data=X_pca, columns=['pca_1', 'pca_2', 'pca_3', 'pca_4'])
 ```
 
 Terlihat pada kode di atas, saat inisialisasi PCA untuk parameter n_components ditetapkan nilai sebesar 0.9. Parameter n_components ini membuat algoritma PCA secara otomatis menentukan jumlah komponen yang diperlukan untuk menangkap 90% variansi dari data.
-
-
-### elakukan Spliting Data
-Spliting data adalah proses untuk membagi data menjadi dua bagian yaitu data training dan data test. Hal ini perlu dilakukan agar bisa melakukan uji coba model dengan data yang belum dilihat oleh model. Pada project ini pembagian dataset adalah 80:20.  Untuk membagi dataset ini digunakan fungsi train_split_test().
-
 
 ## Modeling
 
